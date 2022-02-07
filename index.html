@@ -1,0 +1,87 @@
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+<body>
+    <div class="tcontainer">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item">{{Forename}} you can settle your account with a one off payment of £{{settle}} - Payment can be made below.</div>
+								<div class="ticker-item">{{Forename}} you can settle your account with a one off payment of £{{settle}} - Payment can be made below.</div>
+            </div>
+        </div>
+    </div>
+		
+<h2 align="center" style="color:#5B5959;">Welcome {{Forename}} these are your account details:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Our Client</th>
+    <th>Balance</th>
+    <th>Minimum Payment Due</th>    
+  </tr>
+  <tr>
+    <td>{{ContractLetterName}}</td>
+    <td>£{{Balance}}</td>
+    <td>£{{min_due}}</td>    
+  </tr>
+  
+</table>
+
+<h2 align="center" style="color:#5B5959;">Your payment plan:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Payment Plan Agreed</th>
+    <th>Payment Amount</th>
+    <th>Next Payment</th>
+    <th>On Track</th>
+  </tr>
+  <tr>
+    <td>{{PmtPln}}</td>>
+    <td>£{{PmtAmt}}</td>
+    <td>{{PaymentDue}}</td>
+    <td>{{Dflt}}</td>
+  </tr>
+
+
+</table>
+ 
+
+<button1 onclick="myFunction()"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Cant Afford the Minimum Payment? Make an Offer</button1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div id="myDIV">
+<form
+   action="https://formspree.io/f/xnqwjjpv" method="POST">
+  <label for="DebtID">This is your Zinc reference number:</label><br>
+  <input type="text" id="DebtID" name="DebtID" value="{{DebtID}}"><br><br>
+  <label for="PmtOff">Insert your payment offer amount:</label><br>
+  <input type="text" id="PmtOff" name="PmtOff" value="£"><br><br>
+	<b> Select Your Payment Frequency </b>
+	<input type="radio" id="weekly" name="pmt-frq" value="Weekly">
+  <label for="html">Weekly</label>
+  <input type="radio" id="Monthly" name="pmt-frq" value="Monthly">
+  <label for="css">Monthly</label><br><br>
+  <button type="submit">Send Your Payment Offer</button>
+</form>
+</div>
+
+<div class="button-container">
+  <div class="tile">
+			<a href="/customerportal/payusingsagepay?numberofpayments=12&paymentfrequency=4&paymentdate={{payment_date}}&overrideAmount={{Balance}}&forceRegular=true&minimumPayment={{min_due}}&forcecpa=true" ><i class="fas fa-credit-card" aria-hidden="true"></i><p>Set Up A Payment Plan - Your Minimum Payment Is £{{min_due}}</p></a></div></div>
+			
+<div class="button-container">
+  <div class="tile">
+			<a href="/customerportal/payusingsagepay?numberofpayments=12&paymentfrequency=4&paymentdate={{payment_date}}&overrideAmount={{min_due}}&minimumPayment={{min_due}}&forceSingle=true" ><i class="fas fa-credit-card" aria-hidden="true"></i><p>Make Single Payment - Your Minimum Payment is £{{min_due}}</p></a>
+	</div>
+	</div>
+	
